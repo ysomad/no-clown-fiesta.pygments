@@ -8,10 +8,12 @@ from pygments.token import (
     Name,
     Number,
     Operator,
+    Other,
     Punctuation,
     String,
     Text,
     Token,
+    Whitespace,
 )
 
 
@@ -32,31 +34,17 @@ class NoClownFiestaStyle(Style):
     _green = "#90A959"
     _yellow = "#F4BF75"
     _orange = "#FFA557"
-    _purple = "#AA749F"
-    _magenta = "#AA759F"
     _cursor_fg = "#151515"
     _cursor_bg = "#D0D0D0"
-    _sign_add = "#586935"
-    _sign_change = "#51657B"
-    _sign_delete = "#984936"
     _error = "#984936"
-    _warning = "#ab8550"
-    _info = "#ab8550"
-    _hint = "#576f82"
-    _todo = "#578266"
     _accent_lighter_blue = "#1e222a"
-    _accent_blue = "#18191b"
-    _accent_green = "#181b18"
-    _accent_red = "#1b1818"
 
     name = "no_clown_fiesta"
     aliases = ["no_clown_fiesta", "noclownfiesta", "no-clown-fiesta"]
-    web_style_gallery_exclude = False
     default_style = ""
 
     background_color = _bg
     highlight_color = _accent_lighter_blue
-
     line_number_color = _medium_gray
     line_number_background_color = _alt_bg
     line_number_special_color = _white
@@ -65,33 +53,40 @@ class NoClownFiestaStyle(Style):
     styles = {
         Text: _fg,
         Token: _fg,
-        Comment: f"italic {_medium_gray}",
-        Generic.Prompt: _gray,
-        Generic.Output: _light_gray,
-        Generic.Traceback: _error,
+        Whitespace: _light_gray,
+        Error: f"bold {_error}",
+        Other: _fg,
+
+        Comment: _medium_gray,
+
         Keyword: _gray_blue,
-        Keyword.Type: _white,
-        Operator: _white,
-        Punctuation: _white,
+        Keyword.Namespace: _red,
+
         Name: _white,
-        Name.Function: _cyan,
-        Name.Class: _cyan,
         Name.Builtin: _cyan,
-        Name.Variable: _white,
-        Name.Constant: _white,
-        Name.Attribute: _cyan,
+        Name.Decorator: _cyan,
+        Name.Exception: _red,
+        Name.Function: _cyan,
         Name.Tag: _blue,
-        String: _medium_gray_blue,
-        String.Char: _gray_blue,
-        Number: _red,
+        Name.Class: _cyan,
+        Name.Attribute: _cyan,
+
         Literal: _white,
-        Literal.Date: _white,
-        Generic.Heading: f"bold {_blue}",
-        Generic.Subheading: f"bold {_blue}",
-        Generic.Deleted: _red,
-        Generic.Inserted: _green,
+
+        String: _medium_gray_blue,
+        String.Char: _green,
+
+        Number: _red,
+
+        Operator: _white,
+        Operator.Word: _gray_blue,
+        Punctuation: _white,
+
+        Generic.Deleted: _error,
+        Generic.Inserted: _cyan,
         Generic.Error: f"bold {_error}",
-        Generic.Emph: "italic",
-        Generic.Strong: "bold",
-        Error: f"bg:{_bg} {_error}",
+        Generic.Output: _light_gray,
+        Generic.Prompt: _blue,
+        Generic.Subheading: _blue,
+        Generic.Traceback: _error,
     }
