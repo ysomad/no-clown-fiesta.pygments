@@ -10,9 +10,11 @@ install:
 	@echo "Using aider's Python: $(TOOL_PY)"
 	@echo "Installing $(STYLE_NAME) theme for aider..."
 	$(TOOL_PY) -m pip install -e .
+
 check:
 	@echo "Checking if $(STYLE_NAME) is installed..."
-	@$(TOOL_PY) -c "from pygments.styles import get_style_by_name; print(get_style_by_name('$(STYLE_NAME)'))"
+	@$(TOOL_PY) -c "import pygments.styles as s; print('no-clown-fiesta' in list(s.get_all_styles()))"
+
 uninstall:
 	@echo "Removing installed theme..."
 	$(TOOL_PY) -m pip uninstall -y $(PACKAGE_NAME) || true

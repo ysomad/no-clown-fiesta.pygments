@@ -9,9 +9,10 @@ description = "No Clown Fiesta – a dark Pygments theme trying to avoid looking
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = ["pygments>=2.10"]
+authors = [{ name = "ysomad" }]
 
 [project.entry-points."pygments.styles"]
-no-clown-fiesta = "no_clown_fiesta_style:NoClownFiestaStyle"
+no-clown-fiesta = "style:NoClownFiestaStyle"
 
 [tool.hatch.build.targets.wheel]
-include = ["no_clown_fiesta_style.py", "README.md", "pyproject.toml"]
+include = ["style.py", "README.md", "pyproject.toml"]

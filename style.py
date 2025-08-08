@@ -11,6 +11,7 @@ from pygments.token import (
     Punctuation,
     String,
     Text,
+    Token,
 )
 
 
@@ -48,8 +49,8 @@ class NoClownFiestaStyle(Style):
     _accent_green = "#181b18"
     _accent_red = "#1b1818"
 
-    name = "no-clown-fiesta"
-    aliases = ["no_clown_fiesta", "noclownfiesta"]
+    name = "no_clown_fiesta"
+    aliases = ["no_clown_fiesta", "noclownfiesta", "no-clown-fiesta"]
     web_style_gallery_exclude = False
 
     background_color = _bg
@@ -60,28 +61,27 @@ class NoClownFiestaStyle(Style):
     line_number_special_color = _white
     line_number_special_background_color = _accent
 
-    default_style = ""
-
     styles = {
         Text: _fg,
+        Token: _fg,
         Comment: f"italic {_medium_gray}",
         Generic.Prompt: _gray,
         Generic.Output: _light_gray,
         Generic.Traceback: _error,
-        Keyword: f"bold {_gray_blue}",
+        Keyword: _gray_blue,
         Keyword.Type: _white,
         Operator: _white,
         Punctuation: _white,
         Name: _white,
         Name.Function: _cyan,
-        Name.Class: f"bold {_cyan}",
+        Name.Class: _cyan,
         Name.Builtin: _cyan,
         Name.Variable: _white,
         Name.Constant: _white,
         Name.Attribute: _cyan,
         Name.Tag: _blue,
         String: _medium_gray_blue,
-        String.Char: _green,
+        String.Char: _gray_blue,
         Number: _red,
         Literal: _white,
         Literal.Date: _white,
