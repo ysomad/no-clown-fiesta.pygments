@@ -1,10 +1,6 @@
 # Aider
 
-<p align="middle">
-  <img src="assets/1.png" width="500" />
-  <img src="assets/2.png" width="500" />
-</p>
-
+![1](assets/1.png)
 
 To use in Aider the same Python interpreter must be used which is handled in provided `Makefile`.
 
