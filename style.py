@@ -52,6 +52,7 @@ class NoClownFiestaStyle(Style):
     name = "no_clown_fiesta"
     aliases = ["no_clown_fiesta", "noclownfiesta", "no-clown-fiesta"]
     web_style_gallery_exclude = False
+    default_style = ""
 
     background_color = _bg
     highlight_color = _accent_lighter_blue
