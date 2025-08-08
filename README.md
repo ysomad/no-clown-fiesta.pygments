@@ -1,24 +1,23 @@
 # Aider
 
-1. Set aider interpreter path
+To use in Aider the same Python interpreter must be used which is handled in provided `Makefile`.
+
+- Install
 ```sh
-$ TOOL_PY=$(head -n 1 "$(which aider)" | cut -c 3-)
+$ make install
 ```
 
-2. Install plugin using aider interpreter
+- Check installation
 ```sh
-"$TOOL_PY" -m pip install -e .
+$ make check
 ```
 
-3. Check installation
+- Uninstall
 ```sh
-"$TOOL_PY" - <<'PY'
-from pygments.styles import get_style_by_name
-print(get_style_by_name("no-clown-fiesta"))
-PY
+$ make uninstall
 ```
 
-4. Use in aider:
+- Use in aider:
 ```yaml
 # .aider.conf.yml
 code-theme: no-clown-fiesta

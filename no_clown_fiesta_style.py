@@ -11,79 +11,86 @@ from pygments.token import (
     Punctuation,
     String,
     Text,
-    Token,
 )
 
 
 class NoClownFiestaStyle(Style):
-    background_color = "#151515"  # bg
-    highlight_color = "#1e222a"  # accent_lighter_blue (selection-ish)
+    _fg = "#E1E1E1"
+    _bg = "#151515"
+    _alt_bg = "#171717"
+    _accent = "#202020"
+    _white = "#E1E1E1"
+    _gray = "#373737"
+    _medium_gray = "#727272"
+    _light_gray = "#AFAFAF"
+    _blue = "#BAD7FF"
+    _gray_blue = "#7E97AB"
+    _medium_gray_blue = "#A2B5C1"
+    _cyan = "#88afa2"
+    _red = "#b46958"
+    _green = "#90A959"
+    _yellow = "#F4BF75"
+    _orange = "#FFA557"
+    _purple = "#AA749F"
+    _magenta = "#AA759F"
+    _cursor_fg = "#151515"
+    _cursor_bg = "#D0D0D0"
+    _sign_add = "#586935"
+    _sign_change = "#51657B"
+    _sign_delete = "#984936"
+    _error = "#984936"
+    _warning = "#ab8550"
+    _info = "#ab8550"
+    _hint = "#576f82"
+    _todo = "#578266"
+    _accent_lighter_blue = "#1e222a"
+    _accent_blue = "#18191b"
+    _accent_green = "#181b18"
+    _accent_red = "#1b1818"
+
+    name = "no-clown-fiesta"
+    aliases = ["no_clown_fiesta", "noclownfiesta"]
+    web_style_gallery_exclude = False
+
+    background_color = _bg
+    highlight_color = _accent_lighter_blue
+
+    line_number_color = _medium_gray
+    line_number_background_color = _alt_bg
+    line_number_special_color = _white
+    line_number_special_background_color = _accent
+
     default_style = ""
 
-    _FG = "#E1E1E1"
-    _BG = "#151515"
-    _BLUE = "#BAD7FF"
-    _GBL = "#7E97AB"  # gray_blue (used for keywords, titles, headers)
-    _MGR = "#727272"  # medium_gray (comments)
-    _LGR = "#AFAFAF"
-    _MGB = "#A2B5C1"  # medium_gray_blue (strings)
-    _CYAN = "#88afa2"
-    _RED = "#b46958"
-    _GRN = "#90A959"
-    _YEL = "#F4BF75"
-    _ORG = "#FFA557"
-    _MAG = "#AA759F"
-
     styles = {
-        # Base text
-        Token: _FG,
-        Text: _FG,
-        Punctuation: _FG,
-        # Comments (theme uses medium_gray)
-        Comment: f"italic {_MGR}",
-        Comment.Hashbang: f"italic {_MGR}",
-        Comment.Multiline: f"italic {_MGR}",
-        Comment.Single: f"italic {_MGR}",
-        Comment.Special: f"noitalic {_MGR}",
-        # Keywords (gray_blue)
-        Keyword: f"bold {_GBL}",
-        Keyword.Namespace: f"bold {_GBL}",
-        Keyword.Declaration: f"bold {_GBL}",
-        Keyword.Reserved: f"bold {_GBL}",
-        Keyword.Type: f"bold {_GBL}",
-        Keyword.Pseudo: _GBL,
-        # Names / identifiers
-        Name: _FG,
-        Name.Variable: _FG,  # Variable = white
-        Name.Function: _CYAN,  # Function = cyan
-        Name.Class: _FG,  # Type = white
-        Name.Builtin: _CYAN,
-        Name.Attribute: _BLUE,
-        Name.Tag: _BLUE,  # Tag = blue
-        Name.Constant: _FG,  # Constant = white
-        Name.Exception: _RED,  # Exception = red
-        Name.Decorator: _CYAN,
-        # Literals / numbers / strings
-        Literal: _MGB,
-        String: _MGB,  # String = medium_gray_blue
-        String.Doc: f"italic {_MGR}",
-        String.Escape: _YEL,
-        Number: _RED,  # Number/Boolean/Float = red
-        Number.Float: _RED,
-        Number.Integer: _RED,
-        # Operators
-        Operator: _FG,  # Operator = white
-        Operator.Word: f"bold {_GBL}",
-        # Generics / headings / UI-ish
-        Generic.Heading: f"bold {_BLUE}",
-        Generic.Subheading: f"bold {_GBL}",
-        Generic.Deleted: _RED,
-        Generic.Inserted: _GRN,
+        Text: _fg,
+        Comment: f"italic {_medium_gray}",
+        Generic.Prompt: _gray,
+        Generic.Output: _light_gray,
+        Generic.Traceback: _error,
+        Keyword: f"bold {_gray_blue}",
+        Keyword.Type: _white,
+        Operator: _white,
+        Punctuation: _white,
+        Name: _white,
+        Name.Function: _cyan,
+        Name.Class: f"bold {_cyan}",
+        Name.Builtin: _cyan,
+        Name.Variable: _white,
+        Name.Constant: _white,
+        Name.Attribute: _cyan,
+        Name.Tag: _blue,
+        String: _medium_gray_blue,
+        String.Char: _green,
+        Number: _red,
+        Literal: _white,
+        Literal.Date: _white,
+        Generic.Heading: f"bold {_blue}",
+        Generic.Subheading: f"bold {_blue}",
+        Generic.Deleted: _red,
+        Generic.Inserted: _green,
+        Generic.Error: f"bold {_error}",
         Generic.Emph: "italic",
         Generic.Strong: "bold",
-        Generic.Prompt: _MGR,
-        Generic.Output: _LGR,
-        Generic.Traceback: _RED,
-        # Errors
-        Error: f"bold {_RED}",
+        Error: f"bg:{_bg} {_error}",
     }
