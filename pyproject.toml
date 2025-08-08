@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "no-clown-fiesta-pygments"
+version = "0.0.1"
+description = "No Clown Fiesta – a dark Pygments theme trying to avoid looking like a clown fiesta"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["pygments>=2.10"]
+
+[project.entry-points."pygments.styles"]
+no-clown-fiesta = "no_clown_fiesta_style:NoClownFiestaStyle"
+
+[tool.hatch.build.targets.wheel]
+include = ["no_clown_fiesta_style.py", "README.md", "pyproject.toml"]
